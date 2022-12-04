@@ -1,29 +1,30 @@
-const btnPrevVar = document.querySelector('#gallery .buttons .prev');
-const btnNextVar = document.querySelector('#gallery .buttons .next');
+"use strict";
 
-const allImages = document.querySelectorAll('#gallery .photos img');
-let currentImage = 0; //текущий объект (изображение)
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
 
-btnPrevVar.onclick = function() {
-	allImages[currentImage].className = '';
-	currentImage--; /* currentImage = currentImage - 1 */
+const allImages = document.querySelectorAll('.main-gallery .photos img');
+let i = 0; //*carrent image*//
 
-	if( currentImage < 0) {
-		currentImage = allImages.length - 1; // 
+prevButton.addEventListener('click', function() {
+	allImages[i].className = '';
+	i--; //*carrent image*//
+
+	if(i < 0) {
+		i = allImages.length - 1; //*carrent image*//
 	}
 
-	allImages[currentImage].className = 'shown';	
-};
+	allImages[i].className = 'shown';
+});
 
-btnNextVar.onclick = function() {
-	allImages[currentImage].className = '';
-	currentImage++; /* currentImage = currentImage + 1 */
+nextButton.addEventListener('click', function() {
+	allImages[i].className = '';
+	i++; //*carrent image*//
 
-	if( currentImage >= allImages.length) {
-		currentImage = 0;
+	if(i >= allImages.length) {
+		i = 0; //*carrent image*//
 	}
 
-	allImages[currentImage].className = 'shown';	
-	
-};
+	allImages[i].className = 'shown';
+});
 
